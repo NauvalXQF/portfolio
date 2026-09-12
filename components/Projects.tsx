@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ExternalLink, Github, Tag } from "lucide-react";
 import { projects } from "@/data/projects";
 
@@ -26,6 +27,24 @@ export default function Projects() {
             >
               {/* Top accent bar */}
               <div className="h-1 w-full bg-gradient-to-r from-blue-600 to-purple-600" />
+
+              {/* Project image / thumbnail */}
+              <div className="relative w-full h-48 overflow-hidden bg-white/5">
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-900/30 to-purple-900/30">
+                    <span className="text-4xl">🚀</span>
+                  </div>
+                )}
+                {/* Overlay gradient at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117]/80 via-transparent to-transparent" />
+              </div>
 
               {/* Card body */}
               <div className="flex flex-col flex-1 p-6">

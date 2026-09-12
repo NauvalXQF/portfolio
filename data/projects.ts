@@ -7,6 +7,7 @@ export type Project = {
   category: string;
   githubUrl?: string;
   demoUrl?: string;
+  image?: string;
   imageAlt: string;
   featured: boolean;
 };
@@ -22,7 +23,8 @@ export const projects: Project[] = [
     techStack: ["C++", "OpenGL", "GLUT", "Computer Graphics"],
     category: "Game / Graphics",
     githubUrl: "https://github.com/NauvalXQF",
-    imageAlt: "Ka'bah Coin Quest 3D Game Screenshot",
+    image: "/kabah-coin-quest.png",
+    imageAlt: "Ka'bah Coin Quest — Game Tawaf 3D Screenshot",
     featured: true,
   },
 ];
