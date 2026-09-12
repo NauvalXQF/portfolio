@@ -1,4 +1,4 @@
-import { Github } from "lucide-react";
+import { GithubIcon } from "@/components/icons/GithubIcon";
 
 export default function Footer() {
   return (
@@ -13,7 +13,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-gray-600 hover:text-white transition-colors text-sm"
         >
-          <Github size={14} />
+          <GithubIcon size={14} />
           NauvalXQF
         </a>
       </div>

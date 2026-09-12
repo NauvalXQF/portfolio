@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ExternalLink, Github, Tag } from "lucide-react";
+import { ExternalLink, Tag } from "lucide-react";
+import { GithubIcon } from "@/components/icons/GithubIcon";
 import { projects } from "@/data/projects";
 
 export default function Projects() {
@@ -97,7 +98,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors px-3 py-1.5 rounded-lg border border-white/10 hover:border-white/20"
                     >
-                      <Github size={14} />
+                      <GithubIcon size={14} />
                       GitHub
                     </a>
                   )}

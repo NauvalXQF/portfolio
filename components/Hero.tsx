@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronDown, Github, Mail } from "lucide-react";
+import { ChevronDown, Mail } from "lucide-react";
+import { GithubIcon } from "@/components/icons/GithubIcon";
 
 const roles = [
   "Data Scientist Enthusiast",
@@ -102,7 +103,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="px-8 py-3 rounded-xl border border-white/10 text-gray-300 hover:border-purple-500/50 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
           >
-            <Github size={16} />
+            <GithubIcon size={16} />
             GitHub
           </a>
         </div>

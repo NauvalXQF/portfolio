@@ -1,4 +1,5 @@
-import { Github, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
+import { GithubIcon } from "@/components/icons/GithubIcon";
 
 const links = [
   {
@@ -12,7 +13,7 @@ const links = [
     label: "GitHub",
     value: "NauvalXQF",
     href: "https://github.com/NauvalXQF",
-    icon: <Github size={18} className="text-purple-400" />,
+    icon: <GithubIcon size={18} className="text-purple-400" />,
     display: "github.com/NauvalXQF",
   },
   {

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { GithubIcon } from "@/components/icons/GithubIcon";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -52,8 +53,9 @@ export default function Navbar() {
               href="https://github.com/NauvalXQF"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm px-4 py-2 rounded-lg border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-all duration-200"
+              className="flex items-center gap-2 text-sm px-4 py-2 rounded-lg border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-all duration-200"
             >
+              <GithubIcon size={14} />
               GitHub ↗
             </a>
           </li>
