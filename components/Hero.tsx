@@ -97,7 +97,7 @@ export default function Hero() {
             Get in Touch
           </a>
           <a
-            href="https://github.com/NauvalQXQF"
+            href="https://github.com/NauvalXQF"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3 rounded-xl border border-white/10 text-gray-300 hover:border-purple-500/50 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"

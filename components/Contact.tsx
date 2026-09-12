@@ -10,10 +10,10 @@ const links = [
   },
   {
     label: "GitHub",
-    value: "NauvalQXQF",
-    href: "https://github.com/NauvalQXQF",
+    value: "NauvalXQF",
+    href: "https://github.com/NauvalXQF",
     icon: <Github size={18} className="text-purple-400" />,
-    display: "github.com/NauvalQXQF",
+    display: "github.com/NauvalXQF",
   },
   {
     label: "Location",

@@ -21,7 +21,7 @@ export const projects: Project[] = [
       "Ka'bah Coin Quest is a 3D game developed using C++ and OpenGL. The game features a 3D-rendered Ka'bah environment where the player navigates and collects coins. Built as a computer graphics project, it demonstrates real-time rendering, 3D object manipulation, lighting, and interactive gameplay mechanics.",
     techStack: ["C++", "OpenGL", "GLUT", "Computer Graphics"],
     category: "Game / Graphics",
-    githubUrl: "https://github.com/NauvalQXQF",
+    githubUrl: "https://github.com/NauvalXQF",
     imageAlt: "Ka'bah Coin Quest 3D Game Screenshot",
     featured: true,
   },

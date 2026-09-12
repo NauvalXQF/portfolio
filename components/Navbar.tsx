@@ -49,7 +49,7 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="https://github.com/NauvalQXQF"
+              href="https://github.com/NauvalXQF"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm px-4 py-2 rounded-lg border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-all duration-200"

@@ -8,13 +8,13 @@ export default function Footer() {
           © {new Date().getFullYear()} Muhammad Nauval Fadli. Built with Next.js + Tailwind CSS.
         </p>
         <a
-          href="https://github.com/NauvalQXQF"
+          href="https://github.com/NauvalXQF"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-gray-600 hover:text-white transition-colors text-sm"
         >
           <Github size={14} />
-          NauvalQXQF
+          NauvalXQF
         </a>
       </div>
     </footer>
