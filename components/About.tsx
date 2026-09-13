@@ -1,99 +1,70 @@
-import { BookOpen, Code2, Database } from "lucide-react";
+"use client";
 
-const highlights = [
-  {
-    icon: <Database size={20} className="text-blue-400" />,
-    title: "Data Science",
-    desc: "Passionate about machine learning, data analysis, and turning raw data into actionable insights.",
-  },
-  {
-    icon: <Code2 size={20} className="text-purple-400" />,
-    title: "Software Dev",
-    desc: "From C++ OpenGL games to web applications — I enjoy building across the stack.",
-  },
-  {
-    icon: <BookOpen size={20} className="text-cyan-400" />,
-    title: "Always Learning",
-    desc: "Currently diving deep into Next.js, Laravel, and expanding my data science toolkit.",
-  },
-];
+import { Code2, Database, NotebookPen, GraduationCap, MapPin, Sparkles, Briefcase } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { SectionHeading, Card } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/Reveal";
+
+const highlightIcons = [Database, Code2, NotebookPen];
+const tagIcons = [MapPin, GraduationCap, Sparkles, Briefcase];
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Section header */}
-        <div className="mb-16">
-          <p className="text-blue-400 text-sm font-mono mb-2">// about me</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Who I Am
-          </h2>
-        </div>
+    <section id="about" className="py-20 sm:py-24">
+      <div className="container-pro">
+        <SectionHeading
+          eyebrow={t.about.eyebrow}
+          title={t.about.title}
+          description={t.about.description}
+        />
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left — text */}
-          <div className="space-y-5 text-gray-400 leading-relaxed">
-            <p>
-              Hey! I&apos;m{" "}
-              <span className="text-white font-semibold">
-                Muhammad Nauval Fadli
-              </span>
-              , an Informatics student at{" "}
-              <span className="text-blue-400">
-                Universitas Diponegoro (Undip)
-              </span>
-              , class of &apos;24.
-            </p>
-            <p>
-              My main passion lies in{" "}
-              <span className="text-white">Data Science</span> — I love
-              exploring datasets, building models, and extracting meaning from
-              numbers. But I&apos;m also someone who enjoys the process of
-              building things: games, apps, simulations — you name it.
-            </p>
-            <p>
-              At campus, I&apos;m currently learning{" "}
-              <span className="text-white">
-                Specialized Platform Development
-              </span>{" "}
-              using Laravel and Next.js, which is expanding my perspective on
-              full-stack development.
-            </p>
-            <p>
-              Outside of coding, I&apos;m always tinkering — whether it&apos;s
-              self-hosting a server from my dorm laptop or exploring new tools
-              in the data ecosystem.
-            </p>
-
-            {/* Quick facts */}
-            <div className="pt-2 flex flex-wrap gap-3">
-              {["📍 Semarang, Indonesia", "🎓 Informatika Undip '24", "💡 Data Science", "🔧 Open to Internship"].map(
-                (tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-gray-400"
-                  >
-                    {tag}
-                  </span>
-                )
-              )}
-            </div>
-          </div>
-
-          {/* Right — highlight cards */}
-          <div className="space-y-4">
-            {highlights.map((item) => (
-              <div
-                key={item.title}
-                className="flex gap-4 p-5 rounded-xl bg-white/3 border border-white/5 hover:border-blue-500/30 hover:bg-white/5 transition-all duration-300"
-              >
-                <div className="mt-0.5 shrink-0">{item.icon}</div>
-                <div>
-                  <h3 className="text-white font-semibold mb-1">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <Reveal className="space-y-4 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+            {t.about.paragraphs.map((p, i) => (
+              <p key={i} className={i === 0 ? "text-zinc-800 dark:text-zinc-200" : ""}>
+                {p}
+              </p>
             ))}
+
+            <div className="flex flex-wrap gap-2 pt-3">
+              {t.about.tags.map((tag, i) => {
+                const Icon = tagIcons[i % tagIcons.length];
+                return (
+                  <span
+                    key={tag.label}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300"
+                  >
+                    <Icon size={12} className="text-zinc-400 dark:text-zinc-500" />
+                    {tag.label}
+                  </span>
+                );
+              })}
+            </div>
+          </Reveal>
+
+          <div className="space-y-3">
+            {t.about.highlights.map((h, i) => {
+              const Icon = highlightIcons[i % highlightIcons.length];
+              return (
+                <Reveal key={h.title} delay={i * 80}>
+                  <Card className="flex gap-3.5 p-5 transition-colors hover:border-zinc-300 dark:hover:border-zinc-700">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                      <Icon size={17} />
+                    </span>
+                    <span>
+                      <span className="block text-[15px] font-semibold text-zinc-900 dark:text-white">
+                        {h.title}
+                      </span>
+                      <span className="mt-1 block text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                        {h.desc}
+                      </span>
+                    </span>
+                  </Card>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -1,77 +1,70 @@
-import { skills } from "@/data/skills";
+"use client";
 
-const categoryColors: Record<string, string> = {
-  language: "border-blue-500/30 bg-blue-500/10 text-blue-300",
-  framework: "border-purple-500/30 bg-purple-500/10 text-purple-300",
-  design: "border-pink-500/30 bg-pink-500/10 text-pink-300",
-  tool: "border-cyan-500/30 bg-cyan-500/10 text-cyan-300",
+import { useLanguage } from "@/context/LanguageContext";
+import { SectionHeading, Card } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/Reveal";
+import { skills, type SkillLevel } from "@/data/skills";
+
+const levelDot: Record<SkillLevel, string> = {
+  intermediate: "bg-emerald-500",
+  familiar: "bg-blue-500",
+  learning: "bg-amber-500",
 };
-
-const categoryLabels: Record<string, string> = {
-  language: "Languages",
-  framework: "Frameworks",
-  design: "Design",
-  tool: "Tools",
-};
-
-// Skill icons (text-based since we don't have image assets yet)
-const skillIcons: Record<string, string> = {
-  Python: "🐍",
-  Java: "☕",
-  "C": "⚙️",
-  "C++": "⚙️",
-  PHP: "🐘",
-  SQL: "🗄️",
-  Laravel: "🔴",
-  "Next.js": "▲",
-  Figma: "🎨",
-  "Cisco Packet Tracer": "🌐",
-  Git: "🔀",
-};
-
-const categories = ["language", "framework", "design", "tool"] as const;
 
 export default function Skills() {
-  return (
-    <section id="skills" className="py-24 px-6 bg-white/[0.01]">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="mb-16">
-          <p className="text-blue-400 text-sm font-mono mb-2">// skills</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Tech Stack
-          </h2>
-          <p className="text-gray-500 mt-2 max-w-lg">
-            Tools and technologies I&apos;ve worked with — from data pipelines
-            to web apps.
-          </p>
-        </div>
+  const { t } = useLanguage();
 
-        {/* Skills by category */}
-        <div className="space-y-10">
-          {categories.map((cat) => {
-            const catSkills = skills.filter((s) => s.category === cat);
-            if (catSkills.length === 0) return null;
+  return (
+    <section id="skills" className="py-20 sm:py-24">
+      <div className="container-pro">
+        <SectionHeading
+          eyebrow={t.skills.eyebrow}
+          title={t.skills.title}
+          description={t.skills.description}
+        />
+
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {t.skills.groups.map((group, gi) => {
+            const groupSkills = skills.filter((s) => s.group === group.id);
             return (
-              <div key={cat}>
-                <h3 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-4">
-                  {categoryLabels[cat]}
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {catSkills.map((skill) => (
-                    <div
-                      key={skill.name}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-all duration-200 hover:scale-105 ${categoryColors[skill.category]}`}
-                    >
-                      <span>{skillIcons[skill.name] ?? "✦"}</span>
-                      <span>{skill.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <Reveal key={group.id} delay={gi * 80}>
+                <Card className="flex h-full flex-col p-5">
+                  <h3 className="text-[15px] font-semibold text-zinc-900 dark:text-white">
+                    {group.label}
+                  </h3>
+                  <p className="mt-0.5 text-xs text-zinc-500 dark:text-zinc-400">
+                    {group.hint}
+                  </p>
+                  <ul className="mt-4 space-y-2.5">
+                    {groupSkills.map((skill) => (
+                      <li
+                        key={skill.name}
+                        className="flex items-center justify-between gap-3 rounded-xl border border-zinc-100 bg-zinc-50/60 px-3 py-2 dark:border-zinc-800/80 dark:bg-zinc-900/60"
+                      >
+                        <span className="flex items-center gap-2 text-sm font-medium text-zinc-800 dark:text-zinc-100">
+                          <span
+                            aria-hidden="true"
+                            className={`h-1.5 w-1.5 rounded-full ${levelDot[skill.level]}`}
+                          />
+                          {skill.name}
+                        </span>
+                        <span className="shrink-0 text-[11px] text-zinc-500 dark:text-zinc-400">
+                          {t.skills.levels[skill.level]}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              </Reveal>
             );
           })}
         </div>
+
+        <Reveal delay={120}>
+          <p className="mx-auto mt-6 max-w-2xl rounded-xl border border-dashed border-zinc-300 bg-zinc-50 px-4 py-3 text-center text-[13px] leading-relaxed text-zinc-600 dark:border-zinc-700 dark:bg-zinc-900/50 dark:text-zinc-400">
+            {t.skills.learningNote}
+          </p>
+        </Reveal>
       </div>
     </section>
   );

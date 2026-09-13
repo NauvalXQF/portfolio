@@ -1,107 +1,120 @@
-import { Mail, MapPin } from "lucide-react";
-import { GithubIcon } from "@/components/icons/GithubIcon";
+"use client";
 
-const links = [
-  {
-    label: "Email",
-    value: "opaw1426@gmail.com",
-    href: "mailto:opaw1426@gmail.com",
-    icon: <Mail size={18} className="text-blue-400" />,
-    display: "opaw1426@gmail.com",
-  },
-  {
-    label: "GitHub",
-    value: "NauvalXQF",
-    href: "https://github.com/NauvalXQF",
-    icon: <GithubIcon size={18} className="text-purple-400" />,
-    display: "github.com/NauvalXQF",
-  },
-  {
-    label: "Location",
-    value: "Semarang, Indonesia",
-    href: null,
-    icon: <MapPin size={18} className="text-cyan-400" />,
-    display: "Semarang, Indonesia",
-  },
-];
+import { useState } from "react";
+import { Check, Copy, Mail } from "lucide-react";
+import { GithubIcon } from "@/components/icons/GithubIcon";
+import { useLanguage } from "@/context/LanguageContext";
+import { SectionHeading, Card } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/Reveal";
+
+const EMAIL = "opaw1426@gmail.com";
+const GITHUB_URL = "https://github.com/NauvalXQF";
+const GITHUB_HANDLE = "github.com/NauvalXQF";
 
 export default function Contact() {
+  const { t } = useLanguage();
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      window.location.href = `mailto:${EMAIL}`;
+    }
+  };
+
   return (
-    <section id="contact" className="py-24 px-6 bg-white/[0.01]">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="mb-16">
-          <p className="text-blue-400 text-sm font-mono mb-2">// contact</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Get In Touch
-          </h2>
-          <p className="text-gray-500 mt-2 max-w-lg">
-            Open to internship opportunities, collaborations, or just a good
-            conversation about data and tech.
-          </p>
-        </div>
+    <section id="contact" className="py-20 sm:py-24">
+      <div className="container-pro">
+        <SectionHeading
+          eyebrow={t.contact.eyebrow}
+          title={t.contact.title}
+          description={t.contact.description}
+        />
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left — contact info */}
-          <div className="space-y-6">
-            {links.map((link) => (
-              <div
-                key={link.label}
-                className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/3 hover:border-blue-500/20 hover:bg-white/5 transition-all duration-300"
+        <div className="mt-10 grid gap-4 lg:grid-cols-[1fr_1fr]">
+          <div className="space-y-3">
+            <Reveal>
+              <Card className="flex items-center gap-4 p-5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                  <Mail size={17} />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-xs text-zinc-500 dark:text-zinc-400">
+                    {t.contact.emailTitle} — {t.contact.emailHint}
+                  </span>
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="block truncate text-[15px] font-medium text-zinc-900 hover:underline dark:text-white"
+                  >
+                    {EMAIL}
+                  </a>
+                </span>
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-medium text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-white"
+                >
+                  {copied ? <Check size={13} /> : <Copy size={13} />}
+                  {copied ? t.contact.copiedLabel : t.contact.copyLabel}
+                </button>
+              </Card>
+            </Reveal>
+
+            <Reveal delay={70}>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_1px_2px_rgb(0_0_0/0.04)] transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
               >
-                <div className="p-2 rounded-lg bg-white/5">{link.icon}</div>
-                <div>
-                  <p className="text-xs text-gray-500 mb-0.5">{link.label}</p>
-                  {link.href ? (
-                    <a
-                      href={link.href}
-                      target={link.href.startsWith("http") ? "_blank" : undefined}
-                      rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-white transition-colors text-sm"
-                    >
-                      {link.display}
-                    </a>
-                  ) : (
-                    <p className="text-gray-300 text-sm">{link.display}</p>
-                  )}
-                </div>
-              </div>
-            ))}
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                  <GithubIcon size={17} />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-xs text-zinc-500 dark:text-zinc-400">
+                    {t.contact.githubTitle} — {t.contact.githubHint}
+                  </span>
+                  <span className="block truncate text-[15px] font-medium text-zinc-900 dark:text-white">
+                    {GITHUB_HANDLE}
+                  </span>
+                </span>
+              </a>
+            </Reveal>
 
-            {/* CTA */}
-            <a
-              href="mailto:opaw1426@gmail.com"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 transition-all duration-200 glow-blue mt-2"
-            >
-              <Mail size={16} />
-              Send me an email
-            </a>
+            <Reveal delay={120}>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+              >
+                <Mail size={15} />
+                {t.contact.primaryCta}
+              </a>
+            </Reveal>
           </div>
 
-          {/* Right — message */}
-          <div className="p-8 rounded-2xl border border-white/5 bg-white/3">
-            <h3 className="text-white font-bold text-xl mb-3">
-              Let&apos;s build something together 🤝
-            </h3>
-            <p className="text-gray-400 leading-relaxed text-sm">
-              I&apos;m currently a student at Informatika Undip with a deep
-              interest in data science and machine learning. Whether you have a
-              project idea, an internship opportunity, or just want to connect
-              — feel free to reach out!
-            </p>
-            <div className="mt-6 pt-6 border-t border-white/5 flex flex-wrap gap-2">
-              {["Open to Internship", "Data Science", "Collaboration", "Full-Stack Dev"].map(
-                (tag) => (
+          <Reveal delay={100}>
+            <Card className="h-full bg-zinc-50 p-6 sm:p-7 dark:bg-zinc-900/60">
+              <h3 className="text-[15px] font-semibold text-zinc-900 dark:text-white">
+                {t.contact.lookingTitle}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {t.contact.lookingDesc}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {t.contact.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 rounded-full text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400"
+                    className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-300"
                   >
                     {tag}
                   </span>
-                )
-              )}
-            </div>
-          </div>
+                ))}
+              </div>
+            </Card>
+          </Reveal>
         </div>
       </div>
     </section>
