@@ -136,7 +136,7 @@ export const en: Dictionary = {
     roleLabel: "Role",
     upcomingTitle: "Up next",
     upcomingDesc: "Data-oriented builds in progress — documented as I learn.",
-    upcomingItems: ["LastBite", "Booking Bioskop", "Data Analysis notes"],
+    upcomingItems: ["Booking Bioskop", "Data Analysis notes"],
     emptyTitle: "No projects in this category yet.",
   },
   contact: {

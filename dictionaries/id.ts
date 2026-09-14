@@ -132,7 +132,7 @@ export const id: Dictionary = {
     roleLabel: "Peran",
     upcomingTitle: "Berikutnya",
     upcomingDesc: "Build berorientasi data yang sedang jalan — didokumentasikan sambil belajar.",
-    upcomingItems: ["LastBite", "Booking Bioskop", "Catatan Data Analysis"],
+    upcomingItems: ["Booking Bioskop", "Catatan Data Analysis"],
     emptyTitle: "Belum ada proyek di kategori ini.",
   },
   contact: {
