@@ -1,6 +1,4 @@
-"use client";
-
-import { useLanguage } from "@/context/LanguageContext";
+import { en as t } from "@/dictionaries/en";
 import { SectionHeading, Card } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { skills, type SkillLevel } from "@/data/skills";
@@ -12,8 +10,6 @@ const levelDot: Record<SkillLevel, string> = {
 };
 
 export default function Skills() {
-  const { t } = useLanguage();
-
   return (
     <section id="skills" className="py-20 sm:py-24">
       <div className="container-pro">

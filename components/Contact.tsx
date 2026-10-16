@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Check, Copy, Mail } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
-import { useLanguage } from "@/context/LanguageContext";
+import { en as t } from "@/dictionaries/en";
 import { SectionHeading, Card } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 
@@ -12,7 +12,6 @@ const GITHUB_URL = "https://github.com/NauvalXQF";
 const GITHUB_HANDLE = "github.com/NauvalXQF";
 
 export default function Contact() {
-  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const copyEmail = async () => {
@@ -55,7 +54,7 @@ export default function Contact() {
                 <button
                   type="button"
                   onClick={copyEmail}
-                  className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-medium text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-white"
+                  className="hit-y inline-flex shrink-0 items-center gap-1.5 rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-medium text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-white"
                 >
                   {copied ? <Check size={13} /> : <Copy size={13} />}
                   {copied ? t.contact.copiedLabel : t.contact.copyLabel}

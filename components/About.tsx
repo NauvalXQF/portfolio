@@ -1,7 +1,5 @@
-"use client";
-
 import { Code2, Database, NotebookPen, GraduationCap, MapPin, Sparkles, Briefcase } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
+import { en as t } from "@/dictionaries/en";
 import { SectionHeading, Card } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 
@@ -9,8 +7,6 @@ const highlightIcons = [Database, Code2, NotebookPen];
 const tagIcons = [MapPin, GraduationCap, Sparkles, Briefcase];
 
 export default function About() {
-  const { t } = useLanguage();
-
   return (
     <section id="about" className="py-20 sm:py-24">
       <div className="container-pro">

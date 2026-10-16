@@ -19,9 +19,14 @@ export const skills: Skill[] = [
   // Web & Building
   { name: "PHP", group: "web", level: "familiar" },
   { name: "Laravel", group: "web", level: "familiar" },
+  { name: "MySQL", group: "web", level: "familiar" },
   { name: "Next.js", group: "web", level: "familiar" },
+  { name: "Tailwind CSS", group: "web", level: "familiar" },
+  { name: "Flask", group: "web", level: "familiar" },
   // Tools & Workflow
   { name: "Git", group: "tools", level: "intermediate" },
+  { name: "Docker", group: "tools", level: "familiar" },
+  { name: "Self-hosting (Linux)", group: "tools", level: "familiar" },
   { name: "Figma", group: "tools", level: "familiar" },
   { name: "Cisco Packet Tracer", group: "tools", level: "familiar" },
 ];

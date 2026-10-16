@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight, Check, Copy, Mail } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
-import { useLanguage } from "@/context/LanguageContext";
+import { en as t } from "@/dictionaries/en";
 import { Reveal } from "@/components/Reveal";
 
 const EMAIL = "opaw1426@gmail.com";
@@ -54,23 +54,25 @@ function Typewriter({ roles }: { roles: string[] }) {
   }, [charIndex, isDeleting, roleIndex, roles]);
 
   return (
-    <p
-      aria-live="polite"
-      className="font-mono text-base text-blue-700 sm:text-lg dark:text-blue-300"
-    >
-      {displayText}
-      <span
+    <>
+      <p
         aria-hidden="true"
-        className="caret-blink ml-0.5 inline-block w-[2px] translate-y-[2px] bg-current"
+        className="font-mono text-base text-blue-700 sm:text-lg dark:text-blue-300"
       >
-        &nbsp;
-      </span>
-    </p>
+        {displayText}
+        <span
+          aria-hidden="true"
+          className="caret-blink ml-0.5 inline-block w-[2px] translate-y-[2px] bg-current"
+        >
+          &nbsp;
+        </span>
+      </p>
+      <span className="sr-only">{roles.join(" · ")}</span>
+    </>
   );
 }
 
 export default function Hero() {
-  const { t, lang } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const copyEmail = async () => {
@@ -114,7 +116,7 @@ export default function Hero() {
 
         <Reveal delay={140}>
           <div className="mt-5 flex h-8 items-center justify-center">
-            <Typewriter key={lang} roles={t.hero.roles} />
+            <Typewriter roles={t.hero.roles} />
           </div>
           <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
             {t.hero.description}
@@ -144,7 +146,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 aria-label={t.hero.githubLabel}
                 title={t.hero.githubLabel}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-300 text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-white"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-300 text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-white"
               >
                 <GithubIcon size={17} />
               </a>
@@ -153,7 +155,7 @@ export default function Hero() {
                 onClick={copyEmail}
                 aria-label={t.hero.copyEmailLabel}
                 title={`${EMAIL} — ${t.hero.copyEmailLabel}`}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-300 text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-white"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-300 text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-white"
               >
                 {copied ? <Check size={16} className="text-emerald-600" /> : <Copy size={15} />}
               </button>
@@ -181,7 +183,7 @@ export default function Hero() {
 
         <a
           href="#about"
-          className="mt-12 inline-flex flex-col items-center gap-1 text-xs text-zinc-400 transition-colors hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300"
+          className="mt-12 inline-flex flex-col items-center gap-1 text-xs text-zinc-500 transition-colors hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
           {t.hero.scroll}
           <ArrowDown size={14} className="animate-bounce" />

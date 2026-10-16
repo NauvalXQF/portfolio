@@ -1,5 +1,3 @@
-export type Lang = "en" | "id";
-
 export type Dictionary = {
   nav: {
     about: string;
@@ -10,6 +8,7 @@ export type Dictionary = {
     github: string;
     menuLabel: string;
     closeLabel: string;
+    primaryLabel: string;
   };
   hero: {
     badge: string;
@@ -19,7 +18,6 @@ export type Dictionary = {
     primaryCta: string;
     secondaryCta: string;
     githubLabel: string;
-    emailLabel: string;
     copied: string;
     copyEmailLabel: string;
     stats: { value: string; label: string }[];
@@ -37,13 +35,6 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     description: string;
-    items: {
-      period: string;
-      title: string;
-      org: string;
-      desc: string;
-      tags: string[];
-    }[];
   };
   skills: {
     eyebrow: string;
@@ -67,11 +58,11 @@ export type Dictionary = {
     description: string;
     filters: { id: string; label: string }[];
     featuredLabel: string;
+    liveLabel: string;
+    filterLabel: string;
     codeLabel: string;
     demoLabel: string;
-    detailsLabel: string;
     outcomesLabel: string;
-    roleLabel: string;
     upcomingTitle: string;
     upcomingDesc: string;
     upcomingItems: string[];

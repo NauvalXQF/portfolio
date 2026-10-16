@@ -1,11 +1,8 @@
-"use client";
-
 import { ArrowUp } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
-import { useLanguage } from "@/context/LanguageContext";
+import { en as t } from "@/dictionaries/en";
 
 export default function Footer() {
-  const { t } = useLanguage();
   const year = new Date().getFullYear();
 
   return (
@@ -23,7 +20,7 @@ export default function Footer() {
             href="https://github.com/NauvalXQF"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-white"
+            className="hit-y inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-white"
           >
             <GithubIcon size={13} />
             NauvalXQF
@@ -32,7 +29,7 @@ export default function Footer() {
             href="#top"
             aria-label={t.footer.backToTop}
             title={t.footer.backToTop}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200 text-zinc-500 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 text-zinc-500 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white"
           >
             <ArrowUp size={14} />
           </a>

@@ -4,14 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
-import { useLanguage } from "@/context/LanguageContext";
-import { LanguageToggle } from "@/components/LanguageToggle";
+import { en as t } from "@/dictionaries/en";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const SECTION_IDS = ["about", "education", "skills", "projects", "contact"];
 
 export default function Navbar() {
-  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -78,14 +76,14 @@ export default function Navbar() {
         style={{ transform: `scaleX(${progress})` }}
       />
       <nav
-        aria-label="Primary"
+        aria-label={t.nav.primaryLabel}
         className="container-pro flex h-16 items-center justify-between"
       >
         <Link
           href="#top"
           className="text-[15px] font-semibold tracking-tight text-zinc-900 dark:text-white"
         >
-          nauval<span className="text-blue-600">.</span>dev
+          opankcs<span className="text-blue-600">.</span>com
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">
@@ -110,13 +108,12 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <LanguageToggle />
           <ThemeToggle />
           <a
             href="https://github.com/NauvalXQF"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-zinc-900 px-3.5 py-1.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+            className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-zinc-900 px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
             <GithubIcon size={14} />
             {t.nav.github}
@@ -124,14 +121,13 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <LanguageToggle compact />
           <ThemeToggle />
           <button
             type="button"
             onClick={() => setIsOpen((v) => !v)}
             aria-expanded={isOpen}
             aria-label={isOpen ? t.nav.closeLabel : t.nav.menuLabel}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 text-zinc-700 dark:border-zinc-800 dark:text-zinc-200"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 text-zinc-700 dark:border-zinc-800 dark:text-zinc-200"
           >
             {isOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -151,7 +147,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`block rounded-lg px-2 py-2.5 text-[15px] ${
+                  className={`block rounded-lg px-2 py-3 text-[15px] ${
                     active === link.id
                       ? "font-medium text-zinc-900 dark:text-white"
                       : "text-zinc-600 dark:text-zinc-400"

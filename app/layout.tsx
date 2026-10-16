@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://opankcs.com"),
   title: {
     default: "Muhammad Nauval Fadli — Aspiring Data Scientist",
     template: "%s | Muhammad Nauval Fadli",
@@ -32,13 +33,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Muhammad Nauval Fadli" }],
   creator: "Muhammad Nauval Fadli",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Muhammad Nauval Fadli — Aspiring Data Scientist",
     description:
       "Informatics UNDIP '24. Learning to turn data into clear insights.",
     type: "website",
     locale: "en_US",
-    alternateLocale: "id_ID",
   },
   twitter: {
     card: "summary_large_image",
@@ -84,7 +87,7 @@ const jsonLd = {
     addressLocality: "Semarang",
     addressCountry: "ID",
   },
-  url: "https://github.com/NauvalXQF",
+  url: "https://opankcs.com",
   sameAs: ["https://github.com/NauvalXQF"],
   knowsAbout: ["Data Science", "Python", "SQL", "Informatics"],
 };

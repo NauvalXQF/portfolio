@@ -10,6 +10,7 @@ export const en: Dictionary = {
     github: "GitHub",
     menuLabel: "Open menu",
     closeLabel: "Close menu",
+    primaryLabel: "Primary",
   },
   hero: {
     badge: "Open to data internships & collaboration",
@@ -17,20 +18,19 @@ export const en: Dictionary = {
     roles: [
       "Aspiring Data Scientist",
       "Informatics Student @ UNDIP",
-      "Python & SQL Explorer",
+      "Building & Self-hosting Real Apps",
       "Turning Data into Insight",
     ],
     description:
-      "Informatics student at Universitas Diponegoro ('24) focused on data science — learning to clean, analyze, and communicate data clearly through small, honest projects.",
+      "Informatics student at Universitas Diponegoro ('24) focused on data science — learning to clean and communicate data clearly while building and self-hosting real projects.",
     primaryCta: "View Projects",
     secondaryCta: "Get in Touch",
     githubLabel: "GitHub",
-    emailLabel: "Email",
     copied: "Copied!",
     copyEmailLabel: "Copy email",
     stats: [
       { value: "UNDIP '24", label: "Informatics" },
-      { value: "Data-first", label: "Focus area" },
+      { value: "3 apps", label: "Live & self-hosted" },
       { value: "Open", label: "To internship" },
     ],
     scroll: "scroll",
@@ -39,16 +39,17 @@ export const en: Dictionary = {
     eyebrow: "// about",
     title: "Data-curious student who likes building things",
     description:
-      "My lane is data science, but I learn best by building end to end.",
+      "My focus is data science, but I learn best by building things end to end.",
     paragraphs: [
       "I'm Muhammad Nauval Fadli, an Informatics undergraduate at Universitas Diponegoro, class of 2024. My main interest is data science: asking questions, cleaning messy datasets, and presenting findings in a way people understand.",
       "I started from programming fundamentals (C, C++, Java) and databases (SQL), then moved into Python for analysis and web basics with Laravel and Next.js. That mix helps me understand the full flow — from where data comes from to how it is shown.",
-      "Right now I'm building foundations: statistics, data wrangling, visualization, and clear storytelling. I document what I learn in small projects instead of claiming expertise I don't have yet.",
+      "Right now I'm building foundations: statistics, data wrangling, visualization, and clear storytelling — while running my own home server to deploy real apps (REKSA, JARA, KMS Kopi) with Docker and Cloudflare Tunnel.",
     ],
     tags: [
       { label: "Semarang, Indonesia" },
       { label: "Informatics UNDIP '24" },
       { label: "Data Science focus" },
+      { label: "Self-hosting & Docker" },
       { label: "Open to internship" },
     ],
     highlights: [
@@ -58,11 +59,11 @@ export const en: Dictionary = {
       },
       {
         title: "Engineering basics",
-        desc: "C/C++, Java, Git, basic web (Laravel, Next.js). Enough to build and ship small apps.",
+        desc: "C/C++, Java, Git, and web with Laravel + Next.js (Blade, MySQL, Docker). Enough to build, ship, and host real apps.",
       },
       {
         title: "Learning in public",
-        desc: "Campus projects, self-hosting experiments, and notes from the data ecosystem.",
+        desc: "Campus and team projects, a self-hosted Docker server, and notes from the data ecosystem.",
       },
     ],
   },
@@ -71,29 +72,6 @@ export const en: Dictionary = {
     title: "Education & learning path",
     description:
       "Formal study plus self-directed learning toward data science.",
-    items: [
-      {
-        period: "2024 — Present",
-        title: "B.Sc. Informatics",
-        org: "Universitas Diponegoro, Semarang",
-        desc: "Core CS: programming, data structures, databases, computer networks, and platform development (Laravel + Next.js).",
-        tags: ["GPA: —", "Focus: Data"],
-      },
-      {
-        period: "2025 — Present",
-        title: "Data science self-track",
-        org: "Independent + campus projects",
-        desc: "Python for analysis, SQL queries, exploratory analysis, and visualization. Building small datasets into readable insights.",
-        tags: ["Python", "SQL", "EDA"],
-      },
-      {
-        period: "Next",
-        title: "Internship-ready",
-        org: "Open to opportunities",
-        desc: "Looking for a data internship where I can clean data, build dashboards, and learn from a real team.",
-        tags: ["Internship", "Entry-level"],
-      },
-    ],
   },
   skills: {
     eyebrow: "// skills",
@@ -106,7 +84,11 @@ export const en: Dictionary = {
         label: "Data & Programming",
         hint: "Daily drivers for analysis",
       },
-      { id: "web", label: "Web & Building", hint: "To ship small apps" },
+      {
+        id: "web",
+        label: "Web & Building",
+        hint: "To ship and host real apps",
+      },
       { id: "tools", label: "Tools & Workflow", hint: "To work cleanly" },
     ],
     levels: {
@@ -121,7 +103,7 @@ export const en: Dictionary = {
     eyebrow: "// projects",
     title: "Selected work",
     description:
-      "Small but real. One shipped project plus what I'm building next toward data.",
+      "Small but real. Shipped and self-hosted apps, plus what I'm building next on the data path.",
     filters: [
       { id: "all", label: "All" },
       { id: "data", label: "Data" },
@@ -129,14 +111,14 @@ export const en: Dictionary = {
       { id: "graphics", label: "Graphics" },
     ],
     featuredLabel: "Featured",
+    liveLabel: "Live",
+    filterLabel: "Filter projects",
     codeLabel: "Code",
     demoLabel: "Live Demo",
-    detailsLabel: "Details",
     outcomesLabel: "What I learned",
-    roleLabel: "Role",
     upcomingTitle: "Up next",
     upcomingDesc: "Data-oriented builds in progress — documented as I learn.",
-    upcomingItems: ["Booking Bioskop", "Data Analysis notes"],
+    upcomingItems: ["Cinema Booking App", "Data analysis notes"],
     emptyTitle: "No projects in this category yet.",
   },
   contact: {
