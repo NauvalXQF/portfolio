@@ -33,7 +33,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Laravel 13", "PHP 8.3", "MySQL 8", "Blade", "Tailwind CSS 4", "Docker"],
     githubUrl: "https://github.com/muhffikkri/room-reservation-system",
-    demoUrl: "https://reservation.opankcs.com",
+    demoUrl: "https://reksa.opankcs.com",
     image: "/reksa.png",
     imageAlt: "REKSA landing page — campus facility reservation platform",
     featured: true,
