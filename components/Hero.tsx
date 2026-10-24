@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, Check, Copy } from "lucide-react";
+import { ArrowDown, ArrowRight, Check, Copy, Download } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { en as t } from "@/dictionaries/en";
 import { Reveal } from "@/components/Reveal";
@@ -190,6 +190,15 @@ export default function Hero() {
                   className="inline-flex items-center gap-1.5 rounded-md border border-line bg-panel px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-line-strong"
                 >
                   {t.hero.secondaryCta}
+                </a>
+                <a
+                  href="/Muhammad_Nauval_Fadli_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-line bg-panel px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-line-strong"
+                >
+                  <Download size={15} />
+                  {t.hero.cvLabel}
                 </a>
                 <div className="flex items-center gap-2">
                   <a

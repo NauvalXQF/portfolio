@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Check, Copy } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Download } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { en as t } from "@/dictionaries/en";
 import { Panel, SectionHeader } from "@/components/ui/Blocks";
@@ -80,12 +80,23 @@ export default function Contact() {
             </Reveal>
 
             <Reveal delay={90}>
-              <a
-                href={`mailto:${EMAIL}`}
-                className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink transition-colors hover:bg-accent/90"
-              >
-                {t.contact.primaryCta}
-              </a>
+              <div className="flex flex-wrap items-center gap-2">
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink transition-colors hover:bg-accent/90"
+                >
+                  {t.contact.primaryCta}
+                </a>
+                <a
+                  href="/Muhammad_Nauval_Fadli_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md border border-line bg-panel px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-line-strong"
+                >
+                  <Download size={15} />
+                  {t.contact.cvLabel}
+                </a>
+              </div>
             </Reveal>
           </div>
 

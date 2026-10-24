@@ -16,6 +16,7 @@ export type Dictionary = {
     description: string;
     primaryCta: string;
     secondaryCta: string;
+    cvLabel: string;
     githubLabel: string;
     copyEmailLabel: string;
     copied: string;
@@ -88,6 +89,7 @@ export type Dictionary = {
     githubTitle: string;
     githubHint: string;
     primaryCta: string;
+    cvLabel: string;
     copyLabel: string;
     copiedLabel: string;
     lookingTitle: string;
