@@ -65,7 +65,7 @@ export const projects: Project[] = [
     slug: "kms-kopi",
     title: "KMS Kopi — Knowledge Management System",
     category: "web",
-    role: "Full-stack developer (solo)",
+    role: "Team lead & full-stack developer",
     description:
       "Knowledge management app for small coffee-shop businesses: store, search, and reuse operational knowledge (recipes, SOPs, suppliers, complaints), with stock and sales logging plus an owner validation flow.",
     outcomes: [
