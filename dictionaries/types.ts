@@ -2,8 +2,8 @@ export type Dictionary = {
   nav: {
     about: string;
     skills: string;
-    education: string;
     projects: string;
+    education: string;
     contact: string;
     github: string;
     menuLabel: string;
@@ -11,33 +11,39 @@ export type Dictionary = {
     primaryLabel: string;
   };
   hero: {
-    badge: string;
-    greeting: string;
+    availability: string;
     roles: string[];
     description: string;
     primaryCta: string;
     secondaryCta: string;
     githubLabel: string;
-    copied: string;
     copyEmailLabel: string;
-    stats: { value: string; label: string }[];
+    copied: string;
     scroll: string;
+    system: {
+      title: string;
+      online: string;
+      fields: { key: string; value: string }[];
+      servicesLabel: string;
+      services: {
+        name: string;
+        domain: string;
+        href: string;
+      }[];
+      stack: string;
+      snapshot: string;
+    };
   };
   about: {
-    eyebrow: string;
+    label: string;
     title: string;
     description: string;
     paragraphs: string[];
-    tags: { label: string }[];
+    spec: { key: string; value: string }[];
     highlights: { title: string; desc: string }[];
   };
-  education: {
-    eyebrow: string;
-    title: string;
-    description: string;
-  };
   skills: {
-    eyebrow: string;
+    label: string;
     title: string;
     description: string;
     groups: {
@@ -53,7 +59,7 @@ export type Dictionary = {
     learningNote: string;
   };
   projects: {
-    eyebrow: string;
+    label: string;
     title: string;
     description: string;
     filters: { id: string; label: string }[];
@@ -68,8 +74,13 @@ export type Dictionary = {
     upcomingItems: string[];
     emptyTitle: string;
   };
+  education: {
+    label: string;
+    title: string;
+    description: string;
+  };
   contact: {
-    eyebrow: string;
+    label: string;
     title: string;
     description: string;
     emailTitle: string;

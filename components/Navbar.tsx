@@ -1,13 +1,12 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { en as t } from "@/dictionaries/en";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
-const SECTION_IDS = ["about", "education", "skills", "projects", "contact"];
+const SECTION_IDS = ["about", "skills", "projects", "education", "contact"];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,9 +16,9 @@ export default function Navbar() {
 
   const navLinks = [
     { label: t.nav.about, href: "#about", id: "about" },
-    { label: t.nav.education, href: "#education", id: "education" },
     { label: t.nav.skills, href: "#skills", id: "skills" },
     { label: t.nav.projects, href: "#projects", id: "projects" },
+    { label: t.nav.education, href: "#education", id: "education" },
     { label: t.nav.contact, href: "#contact", id: "contact" },
   ];
 
@@ -65,14 +64,13 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-zinc-200/80 bg-white/85 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/85"
-          : "border-b border-transparent bg-white/60 backdrop-blur-sm dark:bg-zinc-950/40"
+          ? "border-b border-line bg-canvas/85 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
-      {/* reading progress */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-[2px] origin-left bg-blue-600 transition-transform duration-150"
+        className="absolute inset-x-0 top-0 h-[2px] origin-left bg-accent transition-transform duration-150"
         style={{ transform: `scaleX(${progress})` }}
       />
       <nav
@@ -81,12 +79,12 @@ export default function Navbar() {
       >
         <Link
           href="#top"
-          className="text-[15px] font-semibold tracking-tight text-zinc-900 dark:text-white"
+          className="font-display text-[15px] font-semibold tracking-tight text-ink"
         >
-          opankcs<span className="text-blue-600">.</span>com
+          opankcs<span className="text-accent">.</span>com
         </Link>
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => {
             const isActive = active === link.id;
             return (
@@ -94,10 +92,10 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   aria-current={isActive ? "true" : undefined}
-                  className={`rounded-full px-3 py-1.5 text-sm transition-colors ${
+                  className={`font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
                     isActive
-                      ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
-                      : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-white"
+                      ? "text-accent"
+                      : "text-dim hover:text-ink"
                   }`}
                 >
                   {link.label}
@@ -108,63 +106,58 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <ThemeToggle />
           <a
             href="https://github.com/NauvalXQF"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-zinc-900 px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+            className="inline-flex items-center gap-1.5 rounded-md border border-line bg-panel px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-muted transition-colors hover:border-line-strong hover:text-ink"
           >
-            <GithubIcon size={14} />
+            <GithubIcon size={13} />
             {t.nav.github}
           </a>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle />
           <button
             type="button"
             onClick={() => setIsOpen((v) => !v)}
             aria-expanded={isOpen}
             aria-label={isOpen ? t.nav.closeLabel : t.nav.menuLabel}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 text-zinc-700 dark:border-zinc-800 dark:text-zinc-200"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-line text-muted transition-colors hover:border-line-strong hover:text-ink"
           >
             {isOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile panel */}
       <div
         className={`overflow-hidden transition-[max-height,opacity] duration-300 lg:hidden ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="border-t border-zinc-200 bg-white px-6 py-4 dark:border-zinc-800 dark:bg-zinc-950">
+        <div className="border-t border-line bg-canvas/95 px-6 py-4 backdrop-blur-md">
           <ul className="flex flex-col">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`block rounded-lg px-2 py-3 text-[15px] ${
-                    active === link.id
-                      ? "font-medium text-zinc-900 dark:text-white"
-                      : "text-zinc-600 dark:text-zinc-400"
+                  className={`block px-2 py-3 font-mono text-xs uppercase tracking-[0.14em] ${
+                    active === link.id ? "text-accent" : "text-muted"
                   }`}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li className="mt-2 border-t border-zinc-100 pt-3 dark:border-zinc-900">
+            <li className="mt-2 border-t border-line pt-3">
               <a
                 href="https://github.com/NauvalXQF"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white dark:bg-white dark:text-zinc-900"
+                className="inline-flex items-center gap-2 rounded-md border border-line px-4 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-muted"
               >
-                <GithubIcon size={14} />
+                <GithubIcon size={13} />
                 {t.nav.github}
               </a>
             </li>

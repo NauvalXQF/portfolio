@@ -15,9 +15,9 @@ export function renderOgImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#09090b",
+          background: "#0b0c0e",
           padding: "72px",
-          color: "#fafafa",
+          color: "#e9edf2",
         }}
       >
         <div
@@ -26,7 +26,7 @@ export function renderOgImage() {
             justifyContent: "space-between",
             alignItems: "center",
             fontSize: 28,
-            color: "#a1a1aa",
+            color: "#98a2b0",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
@@ -35,12 +35,14 @@ export function renderOgImage() {
                 width: 16,
                 height: 16,
                 borderRadius: 9999,
-                background: "#2563eb",
+                background: "#ffb224",
               }}
             />
             <div style={{ display: "flex" }}>opankcs.com</div>
           </div>
-          <div style={{ display: "flex" }}>github.com/NauvalXQF</div>
+          <div style={{ display: "flex", color: "#7d8794" }}>
+            github.com/NauvalXQF
+          </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -54,16 +56,16 @@ export function renderOgImage() {
           >
             Muhammad Nauval Fadli
           </div>
-          <div style={{ marginTop: 24, fontSize: 36, color: "#a1a1aa" }}>
+          <div style={{ marginTop: 24, fontSize: 36, color: "#98a2b0" }}>
             {"Informatics UNDIP '24 · Data & self-hosted apps"}
           </div>
         </div>
 
-        <div style={{ display: "flex", gap: 16, fontSize: 26, color: "#71717a" }}>
+        <div style={{ display: "flex", gap: 16, fontSize: 26, color: "#98a2b0" }}>
           <div
             style={{
               display: "flex",
-              border: "1px solid #27272a",
+              border: "1px solid #2b333d",
               borderRadius: 9999,
               padding: "10px 24px",
             }}
@@ -73,7 +75,7 @@ export function renderOgImage() {
           <div
             style={{
               display: "flex",
-              border: "1px solid #27272a",
+              border: "1px solid #2b333d",
               borderRadius: 9999,
               padding: "10px 24px",
             }}
@@ -83,7 +85,7 @@ export function renderOgImage() {
           <div
             style={{
               display: "flex",
-              border: "1px solid #27272a",
+              border: "1px solid #2b333d",
               borderRadius: 9999,
               padding: "10px 24px",
             }}

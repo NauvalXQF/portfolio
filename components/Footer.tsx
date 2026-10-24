@@ -6,32 +6,28 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-zinc-200 py-8 dark:border-zinc-800">
-      <div className="container-pro flex flex-col items-center justify-between gap-4 sm:flex-row">
-        <p className="text-center text-[13px] text-zinc-500 sm:text-left dark:text-zinc-400">
-          © {year} Muhammad Nauval Fadli. {t.footer.rights}
-          <span className="mt-0.5 block sm:mt-0 sm:inline">
-            {" "}
-            {t.footer.builtWith}
-          </span>
+    <footer className="border-t border-line py-8">
+      <div className="container-pro flex flex-col items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.14em] text-dim sm:flex-row">
+        <p className="text-center sm:text-left">
+          © {year} Muhammad Nauval Fadli · {t.footer.builtWith}
         </p>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <a
             href="https://github.com/NauvalXQF"
             target="_blank"
             rel="noopener noreferrer"
-            className="hit-y inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-white"
+            className="hit-y flex items-center gap-1.5 transition-colors hover:text-ink"
           >
-            <GithubIcon size={13} />
+            <GithubIcon size={12} />
             NauvalXQF
           </a>
           <a
             href="#top"
             aria-label={t.footer.backToTop}
             title={t.footer.backToTop}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 text-zinc-500 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white"
+            className="hit-y inline-flex h-10 w-10 items-center justify-center rounded-md border border-line text-dim transition-colors hover:border-line-strong hover:text-ink"
           >
-            <ArrowUp size={14} />
+            <ArrowUp size={13} />
           </a>
         </div>
       </div>

@@ -1,67 +1,63 @@
-import { Code2, Database, NotebookPen, GraduationCap, MapPin, Sparkles, Briefcase } from "lucide-react";
 import { en as t } from "@/dictionaries/en";
-import { SectionHeading, Card } from "@/components/ui/SectionHeading";
+import { Panel, SectionHeader } from "@/components/ui/Blocks";
 import { Reveal } from "@/components/Reveal";
-
-const highlightIcons = [Database, Code2, NotebookPen];
-const tagIcons = [MapPin, GraduationCap, Sparkles, Briefcase];
 
 export default function About() {
   return (
-    <section id="about" className="py-20 sm:py-24">
+    <section id="about" className="py-24 sm:py-28">
       <div className="container-pro">
-        <SectionHeading
-          eyebrow={t.about.eyebrow}
+        <SectionHeader
+          index="01"
+          label={t.about.label}
           title={t.about.title}
           description={t.about.description}
         />
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <Reveal className="space-y-4 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+        <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
+          <Reveal className="space-y-4 text-[15px] leading-relaxed text-muted">
             {t.about.paragraphs.map((p, i) => (
-              <p key={i} className={i === 0 ? "text-zinc-800 dark:text-zinc-200" : ""}>
+              <p key={i} className={i === 0 ? "text-ink" : ""}>
                 {p}
               </p>
             ))}
-
-            <div className="flex flex-wrap gap-2 pt-3">
-              {t.about.tags.map((tag, i) => {
-                const Icon = tagIcons[i % tagIcons.length];
-                return (
-                  <span
-                    key={tag.label}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300"
-                  >
-                    <Icon size={12} className="text-zinc-400 dark:text-zinc-500" />
-                    {tag.label}
-                  </span>
-                );
-              })}
-            </div>
           </Reveal>
 
-          <div className="space-y-3">
-            {t.about.highlights.map((h, i) => {
-              const Icon = highlightIcons[i % highlightIcons.length];
-              return (
-                <Reveal key={h.title} delay={i * 80}>
-                  <Card className="flex gap-3.5 p-5 transition-colors hover:border-zinc-300 dark:hover:border-zinc-700">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
-                      <Icon size={17} />
-                    </span>
-                    <span>
-                      <span className="block text-[15px] font-semibold text-zinc-900 dark:text-white">
-                        {h.title}
-                      </span>
-                      <span className="mt-1 block text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                        {h.desc}
-                      </span>
-                    </span>
-                  </Card>
-                </Reveal>
-              );
-            })}
-          </div>
+          <Reveal delay={80}>
+            <Panel className="overflow-hidden">
+              <div className="mono-label border-b border-line bg-panel2 px-4 py-3">
+                spec
+              </div>
+              {t.about.spec.map((row) => (
+                <div
+                  key={row.key}
+                  className="grid grid-cols-[88px_1fr] items-baseline gap-3 border-b border-line px-4 py-2.5 font-mono text-xs last:border-b-0"
+                >
+                  <span className="uppercase tracking-[0.12em] text-dim">
+                    {row.key}
+                  </span>
+                  <span className="text-ink">{row.value}</span>
+                </div>
+              ))}
+            </Panel>
+          </Reveal>
+        </div>
+
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          {t.about.highlights.map((highlight, i) => (
+            <Reveal key={highlight.title} delay={i * 70}>
+              <Panel className="h-full p-5">
+                <span className="font-mono text-[11px] tracking-[0.14em] text-accent">
+                  [{String(i + 1).padStart(2, "0")}]
+                </span>
+                <h3 className="mt-2 text-sm font-semibold text-ink">
+                  {highlight.title}
+                </h3>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-muted">
+                  {highlight.desc}
+                </p>
+              </Panel>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

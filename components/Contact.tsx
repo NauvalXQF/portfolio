@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Copy, Mail } from "lucide-react";
+import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { en as t } from "@/dictionaries/en";
-import { SectionHeading, Card } from "@/components/ui/SectionHeading";
+import { Panel, SectionHeader } from "@/components/ui/Blocks";
 import { Reveal } from "@/components/Reveal";
 
 const EMAIL = "opaw1426@gmail.com";
@@ -25,96 +25,97 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-24">
+    <section id="contact" className="py-24 sm:py-28">
       <div className="container-pro">
-        <SectionHeading
-          eyebrow={t.contact.eyebrow}
+        <SectionHeader
+          index="05"
+          label={t.contact.label}
           title={t.contact.title}
           description={t.contact.description}
         />
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-[1fr_1fr]">
+        <div className="grid gap-3 lg:grid-cols-2">
           <div className="space-y-3">
             <Reveal>
-              <Card className="flex items-center gap-4 p-5">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
-                  <Mail size={17} />
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-xs text-zinc-500 dark:text-zinc-400">
-                    {t.contact.emailTitle} — {t.contact.emailHint}
-                  </span>
-                  <a
-                    href={`mailto:${EMAIL}`}
-                    className="block truncate text-[15px] font-medium text-zinc-900 hover:underline dark:text-white"
+              <Panel className="overflow-hidden">
+                <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3">
+                  <div className="min-w-0">
+                    <div className="mono-label">
+                      {t.contact.emailTitle} — {t.contact.emailHint}
+                    </div>
+                    <a
+                      href={`mailto:${EMAIL}`}
+                      className="mt-1 block truncate font-mono text-sm text-ink transition-colors hover:text-accent"
+                    >
+                      {EMAIL}
+                    </a>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={copyEmail}
+                    className="hit-y inline-flex shrink-0 items-center gap-1.5 rounded-md border border-line px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-dim transition-colors hover:border-line-strong hover:text-ink"
                   >
-                    {EMAIL}
-                  </a>
-                </span>
-                <button
-                  type="button"
-                  onClick={copyEmail}
-                  className="hit-y inline-flex shrink-0 items-center gap-1.5 rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-medium text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-white"
+                    {copied ? <Check size={12} className="text-ok" /> : <Copy size={12} />}
+                    {copied ? t.contact.copiedLabel : t.contact.copyLabel}
+                  </button>
+                </div>
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between gap-3 px-4 py-3 transition-colors hover:bg-panel2"
                 >
-                  {copied ? <Check size={13} /> : <Copy size={13} />}
-                  {copied ? t.contact.copiedLabel : t.contact.copyLabel}
-                </button>
-              </Card>
+                  <div className="min-w-0">
+                    <div className="mono-label">
+                      {t.contact.githubTitle} — {t.contact.githubHint}
+                    </div>
+                    <div className="mt-1 flex items-center gap-2 truncate font-mono text-sm text-ink">
+                      <GithubIcon size={14} />
+                      {GITHUB_HANDLE}
+                    </div>
+                  </div>
+                  <ArrowUpRight size={15} className="shrink-0 text-dim" />
+                </a>
+              </Panel>
             </Reveal>
 
-            <Reveal delay={70}>
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_1px_2px_rgb(0_0_0/0.04)] transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
-                  <GithubIcon size={17} />
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-xs text-zinc-500 dark:text-zinc-400">
-                    {t.contact.githubTitle} — {t.contact.githubHint}
-                  </span>
-                  <span className="block truncate text-[15px] font-medium text-zinc-900 dark:text-white">
-                    {GITHUB_HANDLE}
-                  </span>
-                </span>
-              </a>
-            </Reveal>
-
-            <Reveal delay={120}>
+            <Reveal delay={90}>
               <a
                 href={`mailto:${EMAIL}`}
-                className="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+                className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink transition-colors hover:bg-accent/90"
               >
-                <Mail size={15} />
                 {t.contact.primaryCta}
               </a>
             </Reveal>
           </div>
 
-          <Reveal delay={100}>
-            <Card className="h-full bg-zinc-50 p-6 sm:p-7 dark:bg-zinc-900/60">
-              <h3 className="text-[15px] font-semibold text-zinc-900 dark:text-white">
+          <Reveal delay={140}>
+            <Panel className="h-full overflow-hidden">
+              <div className="mono-label border-b border-line bg-panel2 px-4 py-3">
                 {t.contact.lookingTitle}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                {t.contact.lookingDesc}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {t.contact.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
               </div>
-            </Card>
+              <div className="p-5">
+                <p className="text-sm leading-relaxed text-muted">
+                  {t.contact.lookingDesc}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {t.contact.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded border border-line px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.1em] text-dim"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Panel>
           </Reveal>
         </div>
+
+        <span aria-live="polite" className="sr-only">
+          {copied ? t.contact.copiedLabel : ""}
+        </span>
       </div>
     </section>
   );

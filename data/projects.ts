@@ -35,7 +35,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/muhffikkri/room-reservation-system",
     demoUrl: "https://reksa.opankcs.com",
     image: "/reksa.png",
-    imageAlt: "REKSA landing page — campus facility reservation platform",
+    imageAlt: "REKSA login page — campus facility reservation platform",
     featured: true,
     live: true,
   },

@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { AppProviders } from "@/context/AppProviders";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +12,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://opankcs.com"),
   title: {
@@ -21,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Muhammad Nauval Fadli",
   },
   description:
-    "Informatics student at Universitas Diponegoro ('24) focused on data science. Python, SQL, and honest small projects.",
+    "Informatics student at Universitas Diponegoro ('24) focused on data science. Python, SQL, and honest small projects — built and self-hosted end to end.",
   keywords: [
     "Muhammad Nauval Fadli",
     "data science",
@@ -56,22 +60,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafaf9" },
-    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
-  ],
+  themeColor: "#0b0c0e",
 };
-
-const themeInitScript = `
-(function() {
-  try {
-    var saved = localStorage.getItem('portfolio-theme');
-    var theme = saved === 'light' || saved === 'dark' ? saved : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    if (theme === 'dark') document.documentElement.classList.add('dark');
-    document.documentElement.style.colorScheme = theme;
-  } catch (e) {}
-})();
-`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -98,25 +88,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <head>
-        <Script
-          id="theme-init"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: themeInitScript }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} font-sans antialiased`}
       >
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <AppProviders>{children}</AppProviders>
+        {children}
       </body>
     </html>
   );

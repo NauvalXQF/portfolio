@@ -3,9 +3,9 @@ import type { Dictionary } from "./types";
 export const en: Dictionary = {
   nav: {
     about: "About",
-    skills: "Skills",
-    education: "Education",
-    projects: "Projects",
+    skills: "Stack",
+    projects: "Systems",
+    education: "Log",
     contact: "Contact",
     github: "GitHub",
     menuLabel: "Open menu",
@@ -13,8 +13,7 @@ export const en: Dictionary = {
     primaryLabel: "Primary",
   },
   hero: {
-    badge: "Open to data internships & collaboration",
-    greeting: "Hello, I'm",
+    availability: "Open to data internships & collaboration",
     roles: [
       "Aspiring Data Scientist",
       "Informatics Student @ UNDIP",
@@ -23,20 +22,49 @@ export const en: Dictionary = {
     ],
     description:
       "Informatics student at Universitas Diponegoro ('24) focused on data science — learning to clean and communicate data clearly while building and self-hosting real projects.",
-    primaryCta: "View Projects",
-    secondaryCta: "Get in Touch",
+    primaryCta: "View systems",
+    secondaryCta: "Get in touch",
     githubLabel: "GitHub",
-    copied: "Copied!",
     copyEmailLabel: "Copy email",
-    stats: [
-      { value: "UNDIP '24", label: "Informatics" },
-      { value: "3 apps", label: "Live & self-hosted" },
-      { value: "Open", label: "To internship" },
-    ],
+    copied: "Copied!",
     scroll: "scroll",
+    system: {
+      title: "System status",
+      online: "All systems operational",
+      fields: [
+        { key: "node", value: "nauval-flex5" },
+        { key: "host", value: "Windows · Docker" },
+        { key: "tunnel", value: "cloudflared" },
+      ],
+      servicesLabel: "services",
+      services: [
+        {
+          name: "portfolio",
+          domain: "opankcs.com",
+          href: "https://opankcs.com",
+        },
+        {
+          name: "reksa",
+          domain: "reksa.opankcs.com",
+          href: "https://reksa.opankcs.com",
+        },
+        {
+          name: "jara",
+          domain: "jara.opankcs.com",
+          href: "https://jara.opankcs.com",
+        },
+        {
+          name: "kms kopi",
+          domain: "kms.opankcs.com",
+          href: "https://kms.opankcs.com",
+        },
+      ],
+      stack: "laravel · next.js · docker",
+      snapshot: "snapshot · oct 2026",
+    },
   },
   about: {
-    eyebrow: "// about",
+    label: "About",
     title: "Data-curious student who likes building things",
     description:
       "My focus is data science, but I learn best by building things end to end.",
@@ -45,12 +73,11 @@ export const en: Dictionary = {
       "I started from programming fundamentals (C, C++, Java) and databases (SQL), then moved into Python for analysis and web basics with Laravel and Next.js. That mix helps me understand the full flow — from where data comes from to how it is shown.",
       "Right now I'm building foundations: statistics, data wrangling, visualization, and clear storytelling — while running my own home server to deploy real apps (REKSA, JARA, KMS Kopi) with Docker and Cloudflare Tunnel.",
     ],
-    tags: [
-      { label: "Semarang, Indonesia" },
-      { label: "Informatics UNDIP '24" },
-      { label: "Data Science focus" },
-      { label: "Self-hosting & Docker" },
-      { label: "Open to internship" },
+    spec: [
+      { key: "focus", value: "Data science" },
+      { key: "study", value: "Informatics · UNDIP '24" },
+      { key: "base", value: "Semarang, Indonesia" },
+      { key: "status", value: "Open to internships" },
     ],
     highlights: [
       {
@@ -67,14 +94,8 @@ export const en: Dictionary = {
       },
     ],
   },
-  education: {
-    eyebrow: "// education",
-    title: "Education & learning path",
-    description:
-      "Formal study plus self-directed learning toward data science.",
-  },
   skills: {
-    eyebrow: "// skills",
+    label: "Stack",
     title: "A focused, honest toolkit",
     description:
       "What I can use today — grouped by how I actually use them. No inflated proficiency bars.",
@@ -82,12 +103,12 @@ export const en: Dictionary = {
       {
         id: "data",
         label: "Data & Programming",
-        hint: "Daily drivers for analysis",
+        hint: "Daily drivers",
       },
       {
         id: "web",
         label: "Web & Building",
-        hint: "To ship and host real apps",
+        hint: "To ship and host",
       },
       { id: "tools", label: "Tools & Workflow", hint: "To work cleanly" },
     ],
@@ -100,10 +121,10 @@ export const en: Dictionary = {
       "Currently learning: Pandas, data visualization, and statistics deeper. Next: Scikit-learn basics.",
   },
   projects: {
-    eyebrow: "// projects",
-    title: "Selected work",
+    label: "Systems",
+    title: "Systems in production",
     description:
-      "Small but real. Shipped and self-hosted apps, plus what I'm building next on the data path.",
+      "Live services running on my own hardware — plus experiments in data and graphics.",
     filters: [
       { id: "all", label: "All" },
       { id: "data", label: "Data" },
@@ -114,15 +135,22 @@ export const en: Dictionary = {
     liveLabel: "Live",
     filterLabel: "Filter projects",
     codeLabel: "Code",
-    demoLabel: "Live Demo",
-    outcomesLabel: "What I learned",
+    demoLabel: "Live demo",
+    outcomesLabel: "What I did",
     upcomingTitle: "Up next",
-    upcomingDesc: "Data-oriented builds in progress — documented as I learn.",
+    upcomingDesc:
+      "Data-oriented builds in progress — documented as I learn.",
     upcomingItems: ["Cinema Booking App", "Data analysis notes"],
     emptyTitle: "No projects in this category yet.",
   },
+  education: {
+    label: "Log",
+    title: "Education & learning path",
+    description:
+      "Formal study plus self-directed learning toward data science.",
+  },
   contact: {
-    eyebrow: "// contact",
+    label: "Contact",
     title: "Let's talk data",
     description:
       "Easiest way to reach me is email. I read everything and reply within a few days.",
@@ -140,7 +168,7 @@ export const en: Dictionary = {
   },
   footer: {
     rights: "All rights reserved.",
-    builtWith: "Built with Next.js + Tailwind CSS.",
+    builtWith: "Built with Next.js + Tailwind · self-hosted on a home server.",
     backToTop: "Back to top",
   },
 };
