@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# opankcs.com — Personal Portfolio
 
-## Getting Started
+Modern personal portfolio for **Muhammad Nauval Fadli**, built with the Next.js App Router and a dark "Systems Console" visual language.
 
-First, run the development server:
+**Live:** [https://opankcs.com](https://opankcs.com)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Highlights
+
+- **Systems Console design** — graphite + signal amber palette, Space Grotesk display type, monospace metadata, numbered sections.
+- **Server status panel** — a compact live-style panel showing the home server node, Docker runtime, Cloudflare Tunnel and the services it hosts.
+- **Project showcase** — service-style cards with screenshots for REKSA, JARA, KMS Kopi, and Ka'bah Coin Quest.
+- **Download CV** — a public, up-to-date CV PDF.
+- **SEO ready** — metadata, canonical URL, sitemap, robots, Open Graph and Twitter images, custom favicon.
+- **Fully static** — every route is prerendered for fast, cheap hosting.
+
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19, Tailwind CSS v4 |
+| Language | TypeScript |
+| Fonts | Space Grotesk + Geist Mono |
+| Hosting | Docker + Cloudflare Tunnel (self-hosted) |
+
+## Structure
+
+```
+app/            routes, metadata, sitemap, robots, OG images
+components/     Navbar, Hero, About, Skills, Projects, Education, Contact, Footer
+data/           project content
+public/         project screenshots and CV
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install       # install dependencies
+npm run dev       # development server on :3000
+npm run build     # production build
+npm run start     # serve the production build
+npm run lint      # ESLint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+The site runs as a Docker container behind a Cloudflare Tunnel:
 
-To learn more about Next.js, take a look at the following resources:
+- Push to the `dev` branch.
+- Pull on the server, then `docker-compose up -d --build`.
+- Public traffic is served through `https://opankcs.com` (no public ports exposed).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© Muhammad Nauval Fadli. All rights reserved.
