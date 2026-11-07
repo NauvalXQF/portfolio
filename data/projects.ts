@@ -1,4 +1,4 @@
-export type ProjectCategory = "data" | "web" | "graphics";
+export type ProjectCategory = "data" | "web" | "mobile" | "graphics";
 
 export type Project = {
   id: number;
@@ -11,6 +11,7 @@ export type Project = {
   techStack: string[];
   githubUrl?: string;
   demoUrl?: string;
+  demoLabel?: string;
   image?: string;
   imageAlt: string;
   featured: boolean;
@@ -18,6 +19,28 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: 5,
+    slug: "costa",
+    title: "Costa — Personal Expense Tracker",
+    category: "mobile",
+    role: "Solo developer — Android app, Laravel API & deployment",
+    description:
+      "Personal expense tracker that combines a native Android app with a self-hosted Laravel API: quick logging, daily/weekly/monthly budgets, a rolling food allowance, category insights, and automatic reports.",
+    outcomes: [
+      "Built a native Android app (Kotlin + Jetpack Compose) backed by a Laravel API with per-user Sanctum tokens",
+      "Designed a rolling daily food allowance (debt/bonus carries over), budget health indicators, category donut chart, CSV/PDF export, scheduled notifications, and in-app APK updates",
+      "Deployed on a home server with Docker + Cloudflare Tunnel, SQLite persistence, and daily automated backups",
+    ],
+    techStack: ["Kotlin", "Jetpack Compose", "Laravel 13", "SQLite", "Docker", "Cloudflare"],
+    githubUrl: "https://github.com/NauvalXQF/costa",
+    demoUrl: "https://costa.opankcs.com/download/costa.apk",
+    demoLabel: "Download APK",
+    image: "/costa.png",
+    imageAlt: "Costa app — home screen with budget and food allowance, and category donut chart",
+    featured: true,
+    live: true,
+  },
   {
     id: 2,
     slug: "reksa",

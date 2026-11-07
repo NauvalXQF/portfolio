@@ -99,7 +99,7 @@ function ProjectDetails({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-md bg-accent px-4 py-1.5 text-sm font-medium text-accent-ink transition-colors hover:bg-accent/90"
           >
-            {t.projects.demoLabel}
+            {project.demoLabel ?? t.projects.demoLabel}
             <ArrowUpRight size={14} />
           </a>
         ) : null}
