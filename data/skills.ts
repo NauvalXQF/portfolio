@@ -23,6 +23,8 @@ export const skills: Skill[] = [
   { name: "Next.js", group: "web", level: "familiar" },
   { name: "Tailwind CSS", group: "web", level: "familiar" },
   { name: "Flask", group: "web", level: "familiar" },
+  { name: "Kotlin", group: "web", level: "familiar" },
+  { name: "Jetpack Compose", group: "web", level: "familiar" },
   // Tools & Workflow
   { name: "Git", group: "tools", level: "intermediate" },
   { name: "Docker", group: "tools", level: "familiar" },

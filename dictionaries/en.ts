@@ -58,9 +58,13 @@ export const en: Dictionary = {
           name: "kms kopi",
           domain: "kms.opankcs.com",
           href: "https://kms.opankcs.com",
+        },        {
+          name: "costa",
+          domain: "costa.opankcs.com",
+          href: "https://costa.opankcs.com",
         },
       ],
-      stack: "laravel · next.js · docker",
+      stack: "laravel · next.js · kotlin · docker",
       snapshot: "snapshot · oct 2026",
     },
   },
@@ -72,7 +76,7 @@ export const en: Dictionary = {
     paragraphs: [
       "I'm Muhammad Nauval Fadli, an Informatics undergraduate at Universitas Diponegoro, class of 2024. My main interest is data science: asking questions, cleaning messy datasets, and presenting findings in a way people understand.",
       "I started from programming fundamentals (C, C++, Java) and databases (SQL), then moved into Python for analysis and web basics with Laravel and Next.js. That mix helps me understand the full flow — from where data comes from to how it is shown.",
-      "Right now I'm building foundations: statistics, data wrangling, visualization, and clear storytelling — while running my own home server to deploy real apps (REKSA, JARA, KMS Kopi) with Docker and Cloudflare Tunnel.",
+      "Right now I'm building foundations: statistics, data wrangling, visualization, and clear storytelling — while running my own home server to deploy real apps (REKSA, JARA, KMS Kopi, Costa) with Docker and Cloudflare Tunnel.",
     ],
     spec: [
       { key: "focus", value: "Data science" },
@@ -125,11 +129,12 @@ export const en: Dictionary = {
     label: "Systems",
     title: "Systems in production",
     description:
-      "Live services running on my own hardware — plus experiments in data and graphics.",
+      "Live services and apps running on my own hardware — plus experiments in data and graphics.",
     filters: [
       { id: "all", label: "All" },
       { id: "data", label: "Data" },
       { id: "web", label: "Web" },
+      { id: "mobile", label: "Mobile" },
       { id: "graphics", label: "Graphics" },
     ],
     featuredLabel: "Featured",
@@ -141,7 +146,7 @@ export const en: Dictionary = {
     upcomingTitle: "Up next",
     upcomingDesc:
       "Data-oriented builds in progress — documented as I learn.",
-    upcomingItems: ["Cinema Booking App", "Data analysis notes"],
+    upcomingItems: ["Income tracker for Costa", "Data analysis notes"],
     emptyTitle: "No projects in this category yet.",
   },
   education: {
