@@ -1,55 +1,55 @@
 # opankcs.com — Personal Portfolio
 
-Personal portfolio for **Muhammad Nauval Fadli**, an Informatics student at Universitas Diponegoro ('24) focused on data science — building and self-hosting real projects.
+Modern personal portfolio for **Muhammad Nauval Fadli**, built with the Next.js App Router and a dark "Systems Console" visual language.
+
+**Live:** [https://opankcs.com](https://opankcs.com)
 
 ## Highlights
 
-- Selected work including live, self-hosted apps (REKSA, JARA, KMS Kopi)
-- Dark/light theme with flash-free initial paint
-- Generated Open Graph / Twitter preview image
-- Static single-page site
+- **Systems Console design** — graphite + signal amber palette, Space Grotesk display type, monospace metadata, numbered sections.
+- **Server status panel** — a compact live-style panel showing the home server node, Docker runtime, Cloudflare Tunnel and the services it hosts.
+- **Project showcase** — service-style cards with screenshots for REKSA, JARA, KMS Kopi, and Ka'bah Coin Quest.
+- **Download CV** — a public, up-to-date CV PDF.
+- **SEO ready** — metadata, canonical URL, sitemap, robots, Open Graph and Twitter images, custom favicon.
+- **Fully static** — every route is prerendered for fast, cheap hosting.
 
 ## Stack
 
-- Next.js 16 (App Router) + React 19
-- Tailwind CSS 4
-- lucide-react
-- Deployed with Docker Compose behind a Cloudflare Tunnel
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19, Tailwind CSS v4 |
+| Language | TypeScript |
+| Fonts | Space Grotesk + Geist Mono |
+| Hosting | Docker + Cloudflare Tunnel (self-hosted) |
 
-## Project structure
+## Structure
 
 ```
-app/           App Router entry, metadata, sitemap, robots, OG/twitter image, icon
-components/    Page sections and UI primitives
-context/       Theme provider
-data/          Projects, skills, and education content
-dictionaries/  Site copy
-lib/           Shared Open Graph image renderer
-public/        Static assets (project screenshots)
+app/            routes, metadata, sitemap, robots, OG images
+components/     Navbar, Hero, About, Skills, Projects, Education, Contact, Footer
+data/           project content
+public/         project screenshots and CV
 ```
 
-## Local development
+## Scripts
 
 ```bash
-npm install
-npm run dev
-```
-
-Open http://localhost:3000.
-
-## Production build
-
-```bash
-npm run lint
-npm run build
-npm start
+npm install       # install dependencies
+npm run dev       # development server on :3000
+npm run build     # production build
+npm run start     # serve the production build
+npm run lint      # ESLint
 ```
 
 ## Deployment
 
-The site runs on a self-hosted Docker host. From the server:
+The site runs as a Docker container behind a Cloudflare Tunnel:
 
-```bash
-git pull origin dev
-docker-compose up -d --build
-```
+- Push to the `dev` branch.
+- Pull on the server, then `docker-compose up -d --build`.
+- Public traffic is served through `https://opankcs.com` (no public ports exposed).
+
+## License
+
+© Muhammad Nauval Fadli. All rights reserved.
