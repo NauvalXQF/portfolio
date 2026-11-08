@@ -61,11 +61,11 @@ export const en: Dictionary = {
         },        {
           name: "costa",
           domain: "costa.opankcs.com",
-          href: "https://costa.opankcs.com",
+          href: "https://costa.opankcs.com/download/costa.apk",
         },
       ],
       stack: "laravel · next.js · kotlin · docker",
-      snapshot: "snapshot · oct 2026",
+      snapshot: "snapshot · nov 2026",
     },
   },
   about: {
@@ -76,7 +76,7 @@ export const en: Dictionary = {
     paragraphs: [
       "I'm Muhammad Nauval Fadli, an Informatics undergraduate at Universitas Diponegoro, class of 2024. My main interest is data science: asking questions, cleaning messy datasets, and presenting findings in a way people understand.",
       "I started from programming fundamentals (C, C++, Java) and databases (SQL), then moved into Python for analysis and web basics with Laravel and Next.js. That mix helps me understand the full flow — from where data comes from to how it is shown.",
-      "Right now I'm building foundations: statistics, data wrangling, visualization, and clear storytelling — while running my own home server to deploy real apps (REKSA, JARA, KMS Kopi, Costa) with Docker and Cloudflare Tunnel.",
+      "Right now I'm shipping Costa v1.12, a private-source Android expense tracker with a self-hosted Laravel API, while running my own home server to deploy real apps (REKSA, JARA, KMS Kopi, Costa) with Docker and Cloudflare Tunnel.",
     ],
     spec: [
       { key: "focus", value: "Data science" },
@@ -146,7 +146,7 @@ export const en: Dictionary = {
     upcomingTitle: "Up next",
     upcomingDesc:
       "Data-oriented builds in progress — documented as I learn.",
-    upcomingItems: ["Income tracker for Costa", "Data analysis notes"],
+    upcomingItems: ["Costa backup & restore", "Costa monthly insights", "Data analysis notes"],
     emptyTitle: "No projects in this category yet.",
   },
   education: {
