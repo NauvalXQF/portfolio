@@ -18,7 +18,7 @@ Personal portfolio for **Muhammad Nauval Fadli**, an Informatics student at Univ
 
 ## Related
 
-- [Costa](https://github.com/NauvalXQF/costa) — native Android expense tracker with a Laravel API, built and self-hosted alongside this site.
+- **Costa** — private-source native Android expense tracker with a self-hosted Laravel API. The release APK is public: [download Costa](https://costa.opankcs.com/download/costa.apk).
 
 ## Project structure
 
